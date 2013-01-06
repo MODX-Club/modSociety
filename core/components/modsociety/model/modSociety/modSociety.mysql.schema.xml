@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="modSociety" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" version="1.1">
+	<object class="SocietyTopicAttributes" table="society_topic_attributes" extends="xPDOSimpleObject">
+		<field key="resource_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" index="unique" />
+
+		<index alias="resource_id" name="resource_id" primary="false" unique="true" type="BTREE" >
+			<column key="resource_id" length="" collation="A" null="false" />
+		</index>
+	</object>
+</model>

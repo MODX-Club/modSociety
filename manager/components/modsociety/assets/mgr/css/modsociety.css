@@ -1,0 +1,7 @@
+.icon-societyblog .x-tree-node-icon {
+	background-image: url(../img/societyblog_page.png) !important;
+}
+.icon-societyblog.icon-folder .x-tree-node-icon {
+	background-image: url(../img/societyblog_page.png) !important;
+}
+
