@@ -6,11 +6,12 @@ $xpdo_meta_map['SocietyTopicAttributes']= array (
   'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
-    'resource_id' => NULL,
+    'resourceid' => NULL,
+    'content_hash' => NULL,
   ),
   'fieldMeta' => 
   array (
-    'resource_id' => 
+    'resourceid' => 
     array (
       'dbtype' => 'int',
       'precision' => '10',
@@ -19,22 +20,57 @@ $xpdo_meta_map['SocietyTopicAttributes']= array (
       'null' => false,
       'index' => 'unique',
     ),
+    'content_hash' => 
+    array (
+      'dbtype' => 'char',
+      'precision' => '32',
+      'phptype' => 'string',
+      'null' => true,
+      'index' => 'unique',
+    ),
   ),
+  'aggregates' => 
+  array (
+    'Topic' => 
+    array (
+      'class' => 'SocietyTopic',
+      'local' => 'resourceid',
+      'foreign' => 'id',
+      'cardinality' => 'one',
+      'owner' => 'foreign',
+    ),
+  ), 
   'indexes' => 
   array (
-    'resource_id' => 
+    'resourceid' => 
     array (
-      'alias' => 'resource_id',
+      'alias' => 'resourceid',
       'primary' => false,
       'unique' => true,
       'type' => 'BTREE',
       'columns' => 
       array (
-        'resource_id' => 
+        'resourceid' => 
         array (
           'length' => '',
           'collation' => 'A',
           'null' => false,
+        ),
+      ),
+    ),
+    'content_hash' => 
+    array (
+      'alias' => 'content_hash',
+      'primary' => false,
+      'unique' => true,
+      'type' => 'BTREE',
+      'columns' => 
+      array (
+        'content_hash' => 
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => true,
         ),
       ),
     ),

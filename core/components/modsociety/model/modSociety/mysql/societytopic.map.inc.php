@@ -10,4 +10,23 @@ $xpdo_meta_map['SocietyTopic']= array (
   ),
   'fieldMeta' => 
   array (),
+  'composites' => 
+  array (
+    'Attributes' => 
+    array (
+      'class' => 'SocietyTopicAttributes',
+      'local' => 'id',
+      'foreign' => 'resourceid',
+      'cardinality' => 'one',
+      'owner' => 'local',
+    ),
+    'TopicBlogs' => 
+    array (
+      'class' => 'SocietyBlogTopic',
+      'local' => 'id',
+      'foreign' => 'topicid',
+      'cardinality' => 'many',
+      'owner' => 'local',
+    ),
+  ),
 );

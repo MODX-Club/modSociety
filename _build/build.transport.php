@@ -1,6 +1,11 @@
 <?php
 
 
+$pkg_version = '1.1.0';
+$pkg_release = 'beta';
+define('PKG_VERSION', $pkg_version); 
+define('PKG_RELEASE', $pkg_release); 
+
 $mtime= microtime();
 $mtime= explode(" ", $mtime);
 $mtime= $mtime[1] + $mtime[0];

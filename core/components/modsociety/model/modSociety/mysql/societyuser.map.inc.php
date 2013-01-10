@@ -3,10 +3,9 @@ $xpdo_meta_map['SocietyUser']= array (
   'package' => 'modx',
   'version' => '1.1',
   'extends' => 'modUser',
-  // '_class' =>  "SocietyUser",
   'fields' => 
   array (
-      'class_key' => '',
+      'class_key' => 'SocietyUser',
   ),
   'fieldMeta' => 
   array (),

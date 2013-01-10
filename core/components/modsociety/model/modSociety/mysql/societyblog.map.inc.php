@@ -16,8 +16,16 @@ $xpdo_meta_map['SocietyBlog']= array (
     array (
       'class' => 'SocietyBlogAttributes',
       'local' => 'id',
-      'foreign' => 'resource_id',
+      'foreign' => 'resourceid',
       'cardinality' => 'one',
+      'owner' => 'local',
+    ),
+    'BlogTopics' => 
+    array (
+      'class' => 'SocietyBlogTopic',
+      'local' => 'id',
+      'foreign' => 'blogid',
+      'cardinality' => 'many',
       'owner' => 'local',
     ),
   ),

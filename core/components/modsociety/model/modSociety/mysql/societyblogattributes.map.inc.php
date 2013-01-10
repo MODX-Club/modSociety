@@ -6,12 +6,12 @@ $xpdo_meta_map['SocietyBlogAttributes']= array (
   'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
-    'resource_id' => NULL,
+    'resourceid' => NULL,
     'content_hash' => NULL,
   ),
   'fieldMeta' => 
   array (
-    'resource_id' => 
+    'resourceid' => 
     array (
       'dbtype' => 'int',
       'precision' => '10',
@@ -34,7 +34,7 @@ $xpdo_meta_map['SocietyBlogAttributes']= array (
     'Blog' => 
     array (
       'class' => 'SocietyBlog',
-      'local' => 'resource_id',
+      'local' => 'resourceid',
       'foreign' => 'id',
       'cardinality' => 'one',
       'owner' => 'foreign',
@@ -42,15 +42,15 @@ $xpdo_meta_map['SocietyBlogAttributes']= array (
   ),    
   'indexes' => 
   array (
-    'resource_id' => 
+    'resourceid' => 
     array (
-      'alias' => 'resource_id',
+      'alias' => 'resourceid',
       'primary' => false,
       'unique' => true,
       'type' => 'BTREE',
       'columns' => 
       array (
-        'resource_id' => 
+        'resourceid' => 
         array (
           'length' => '',
           'collation' => 'A',
