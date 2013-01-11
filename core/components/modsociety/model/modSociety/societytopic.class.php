@@ -37,4 +37,20 @@ class SocietyTopic extends modResource {
         $this->xpdo->lexicon->load('modsociety:resources');
         return $this->xpdo->lexicon('modsociety_topic_resource');
     }
+    
+    function get($k){
+        switch($k){
+            case 'url':
+                return $this->makeUrl();
+                break;
+        }
+        return parent::get($k);
+    }
+    
+    function makeUrl(){
+        if(!$id = $this->get('id')){
+            return false;
+        }
+        return $this->xpdo->getOption('base_url')."topics/{$id}/";
+    }
 }

@@ -227,10 +227,21 @@ class modSociety{
     
     
     /*
+     * sendErrorPage
+     */
+    public function sendErrorPage($options = null){
+        $this->modx->sendForward($this->modx->getOption('error_page', $options, '404'), $options);
+    }
+    
+    
+    /*
      * Forward
      */
-    
     public function prepareResponse($options = array()) {
+        if(!isset($this->modx->resource) || !is_object($this->modx->resource)){
+            $this->sendErrorPage();
+            return false;
+        }
         $this->modx->request->prepareResponse($options);
         exit();
     }
