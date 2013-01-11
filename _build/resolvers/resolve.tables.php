@@ -12,6 +12,7 @@ if ($object->xpdo) {
             $modx->setLogLevel(modX::LOG_LEVEL_ERROR);
             $manager->createObjectContainer('SocietyTopicAttributes');
             $manager->createObjectContainer('SocietyBlogAttributes');
+            $manager->createObjectContainer('SocietyBlogTopic');
             $modx->setLogLevel(modX::LOG_LEVEL_INFO);
             break;
     }
