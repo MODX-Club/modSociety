@@ -1,4 +1,9 @@
+modSociety-1.1.0-beta
+=============================================================
+- Added modSociety class
+- Added SocietyBlogTopic class
+
+
 modSociety-1.0.0-beta
 =============================================================
-
 First release
