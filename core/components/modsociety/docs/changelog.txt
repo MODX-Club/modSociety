@@ -1,3 +1,11 @@
+modSociety-2.0.0-beta
+=============================================================
+- Added system setting modsociety.enable_smarty_template
+- Added system setting modsociety.smarty_template
+- Remove SocietyUser class
+- Many global changes
+
+
 modSociety-1.1.0-beta
 =============================================================
 - Added modSociety class

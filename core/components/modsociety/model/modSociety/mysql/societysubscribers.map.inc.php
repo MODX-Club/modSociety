@@ -1,18 +1,18 @@
 <?php
-$xpdo_meta_map['SocietyBlogTopic']= array (
+$xpdo_meta_map['SocietySubscribers']= array (
   'package' => 'modSociety',
   'version' => '1.1',
-  'table' => 'society_blog_topic',
+  'table' => 'society_subscribers',
   'extends' => 'xPDOObject',
   'fields' => 
   array (
-    'blogid' => NULL,
-    'topicid' => NULL,
+    'userid' => NULL,
+    'subscriberid' => NULL,
     'rank' => 0,
   ),
-  'fieldMeta' => 
+'fieldMeta' => 
   array (
-    'blogid' => 
+    'userid' => 
     array (
       'dbtype' => 'int',
       'precision' => '10',
@@ -21,7 +21,7 @@ $xpdo_meta_map['SocietyBlogTopic']= array (
       'null' => false,
       'index' => 'pk',
     ),
-    'topicid' => 
+    'subscriberid' => 
     array (
       'dbtype' => 'int',
       'precision' => '10',
@@ -42,48 +42,27 @@ $xpdo_meta_map['SocietyBlogTopic']= array (
   ),
   'indexes' => 
   array (
-    'blogid' => 
+    'userid' => 
     array (
-      'alias' => 'blogid',
+      'alias' => 'userid',
       'primary' => false,
       'unique' => true,
       'type' => 'BTREE',
       'columns' => 
       array (
-        'blogid' => 
+        'userid' => 
         array (
           'length' => '',
           'collation' => 'A',
           'null' => false,
         ),
-        'topicid' => 
+        'subscriberid' => 
         array (
           'length' => '',
           'collation' => 'A',
           'null' => false,
         ),
       ),
-    ),
-  ),
-  'aggregates' => 
-  array (
-    'Blog' => 
-    array (
-      'class' => 'SocietyBlog',
-      'key' => 'id',
-      'local' => 'blogid',
-      'foreign' => 'id',
-      'cardinality' => 'one',
-      'owner' => 'foreign',
-    ),
-    'Topic' => 
-    array (
-      'class' => 'SocietyTopic',
-      'key' => 'id',
-      'local' => 'topicid',
-      'foreign' => 'id',
-      'cardinality' => 'one',
-      'owner' => 'foreign',
     ),
   ),
 );

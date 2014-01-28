@@ -8,6 +8,10 @@ $xpdo_meta_map = array (
   ),
   'xPDOSimpleObject' => 
   array (
-    0 => 'SocietyTopicAttributes',
+    0 => 'SocietyComment',
+  ),
+  'xPDOObject' => 
+  array (
+    0 => 'SocietySubscribers',
   ),
 );

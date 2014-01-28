@@ -1,7 +1,7 @@
 <?php
 
 
-$pkg_version = '1.1.0';
+$pkg_version = '2.0.0';
 $pkg_release = 'beta';
 define('PKG_VERSION', $pkg_version); 
 define('PKG_RELEASE', $pkg_release); 

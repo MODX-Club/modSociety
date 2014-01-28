@@ -1,6 +1,6 @@
 <?php
 $xpdo_meta_map['SocietyBlog']= array (
-  'package' => 'modx',
+  'package' => 'modSociety',
   'version' => '1.1',
   'extends' => 'modResource',
   'fields' => 

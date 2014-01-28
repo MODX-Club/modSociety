@@ -13,6 +13,10 @@ if ($object->xpdo) {
             $manager->createObjectContainer('SocietyTopicAttributes');
             $manager->createObjectContainer('SocietyBlogAttributes');
             $manager->createObjectContainer('SocietyBlogTopic');
+            $manager->createObjectContainer('SocietyComment');
+            $manager->createObjectContainer('SocietySubscribers');
+            $manager->createObjectContainer('SocietyThread');
+            $manager->createObjectContainer('SocietyVote');
             $modx->setLogLevel(modX::LOG_LEVEL_INFO);
             break;
     }

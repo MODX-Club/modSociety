@@ -38,13 +38,13 @@ class SocietyTopic extends modResource {
         return $this->xpdo->lexicon('modsociety_topic_resource');
     }
     
-    function get($k){
+    function get($k, $format = NULL, $formatTemplate = NULL){
         switch($k){
             case 'url':
                 return $this->makeUrl();
                 break;
         }
-        return parent::get($k);
+        return parent::get($k, $format, $formatTemplate);
     }
     
     function makeUrl(){
