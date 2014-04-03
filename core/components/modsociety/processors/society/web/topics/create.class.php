@@ -30,6 +30,36 @@ class modSocietyWebTopicsCreateProcessor extends modResourceCreateProcessor{
         return parent::initialize();
     }
     
+    public function beforeSet(){
+        
+        $canSave = parent::beforeSet();
+        if ($canSave !== true) {
+            return $canSave;
+        }
+        
+        $this->processAttributes();
+        
+        return true;
+    }
+    
+    protected function processAttributes(){
+        
+        $attr = $this->object->getOne('Attributes');
+        
+        $content = $this->getProperty('content');
+        if(!$attr){
+          $attr = $this->modx->newObject('SocietyTopicAttributes');
+          $attr->fromArray(array(
+            'raw_content' => $content,
+            'content_hash' => md5($content)
+          ));
+        }
+        
+        $this->object->addOne($attr,'Attributes');
+        
+        return true;
+    }
+    
 }
 
 return 'modSocietyWebTopicsCreateProcessor';
