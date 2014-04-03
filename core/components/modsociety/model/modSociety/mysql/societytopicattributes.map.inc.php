@@ -7,6 +7,7 @@ $xpdo_meta_map['SocietyTopicAttributes']= array (
   'fields' => 
   array (
     'resourceid' => NULL,
+    'raw_content' => NULL,
     'content_hash' => NULL,
   ),
   'fieldMeta' => 
@@ -20,6 +21,12 @@ $xpdo_meta_map['SocietyTopicAttributes']= array (
       'null' => false,
       'index' => 'unique',
     ),
+    'raw_content' => 
+    array (
+      'dbtype' => 'mediumtext',
+      'phptype' => 'string',
+      'null' => true,
+    ),
     'content_hash' => 
     array (
       'dbtype' => 'char',
@@ -29,17 +36,6 @@ $xpdo_meta_map['SocietyTopicAttributes']= array (
       'index' => 'unique',
     ),
   ),
-  'aggregates' => 
-  array (
-    'Topic' => 
-    array (
-      'class' => 'SocietyTopic',
-      'local' => 'resourceid',
-      'foreign' => 'id',
-      'cardinality' => 'one',
-      'owner' => 'foreign',
-    ),
-  ), 
   'indexes' => 
   array (
     'resourceid' => 
