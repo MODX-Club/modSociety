@@ -20,6 +20,7 @@ class modSocietyWebThreadsVoteProcessor extends modSocietyWebVotesCreateProcesso
             if(
                 !$response = $this->modx->runProcessor('society/web/threads/get', array(
                     "target_id" => $this->getProperty("target_id"),
+                    "target_class" => $this->getProperty("target_class"),
                 ), array(
                     "processors_path"   => dirname(dirname(dirname(dirname(__FILE__)))) . '/',
                 )
