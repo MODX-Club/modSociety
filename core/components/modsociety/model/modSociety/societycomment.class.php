@@ -89,10 +89,10 @@ class SocietyComment extends xPDOSimpleObject {
             if (!empty ($this->_composites)) {
                 $current= array ($this->_class, $this->_alias);
                 foreach ($this->_composites as $compositeAlias => $composite) {
-                    if (in_array($compositeAlias, $ancestors) || in_array($composite['class'], $ancestors)) {
-                        print 'ancestors';
-                        // continue;
-                    }
+                    // if (in_array($compositeAlias, $ancestors) || in_array($composite['class'], $ancestors)) {
+                    //     // print 'ancestors';
+                    //     // continue;
+                    // }
                     if ($composite['cardinality'] === 'many') {
                         if ($many= $this->getMany($compositeAlias)) {
                             foreach ($many as $one) {
