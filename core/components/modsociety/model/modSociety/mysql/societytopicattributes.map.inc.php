@@ -79,4 +79,15 @@ $xpdo_meta_map['SocietyTopicAttributes']= array (
       ),
     ),
   ),
+    'aggregates' => 
+  array (
+    'Topic' => 
+    array (
+      'class' => 'SocietyTopic',
+      'local' => 'resourceid',
+      'foreign' => 'id',
+      'cardinality' => 'one',
+      'owner' => 'foreign',
+    ),
+  ), 
 );
