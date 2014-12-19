@@ -5,7 +5,7 @@ $xpdo_meta_map['SocietyTopic']= array (
   'extends' => 'modResource',
   'fields' => 
   array (
-      'show_in_tree' => 0,
+      'show_in_tree' => 1,
       'class_key'   =>  'SocietyTopic',
   ),
   'fieldMeta' => 
@@ -25,6 +25,14 @@ $xpdo_meta_map['SocietyTopic']= array (
       'class' => 'SocietyBlogTopic',
       'local' => 'id',
       'foreign' => 'topicid',
+      'cardinality' => 'many',
+      'owner' => 'local',
+    ),
+    'TopicTags' => 
+    array (
+      'class' => 'SocietyTopicTags',
+      'local' => 'id',
+      'foreign' => 'topic_id',
       'cardinality' => 'many',
       'owner' => 'local',
     ),
