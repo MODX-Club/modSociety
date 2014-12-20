@@ -68,8 +68,51 @@ class modSocietyWebThreadsCommentsCreateProcessor extends modSocietyWebThreadsUp
         
         // else add comment count
         $this->object->set('comments_count', $this->object->get('comments_count') + 1);
+        $this->object->set('comment_id', $comment->get('id'));
         
         return parent::beforeSave();
+    }
+    
+    # We returns new message not topic
+    public function cleanup(){
+        
+        $comment_id = $this->object->comment_id;
+        
+        $comment_html = '';
+        
+        if(
+            $response = $this->modx->runProcessor('society/web/threads/comments/getdata',
+                array(
+                    "comment_id"    => $comment_id,
+                    "listType"      => false,
+                ), array(
+                    'processors_path' => MODX_CORE_PATH .'components/modsociety/processors/',
+                )
+            )
+        ){ 
+            
+            
+            if(
+                !$response->isError() 
+                AND $object = $response->getObject()
+            ){
+                $comment = current($object);
+                
+                $comment['author_username'] = $this->modx->user->username;
+                
+                $unset_fields = array(
+                    'ip', 'raw_text', 'createdby', 'editedon', 'editedby', 'deletedon', 'deletedby', 'editedon', 'properties', 'deleted'
+                );
+                
+                foreach($unset_fields as $field){
+                    unset($comment[$field]);
+                }
+            }
+            
+        }
+        
+        
+        return $this->success('Success', $comment);
     }
     
 }
