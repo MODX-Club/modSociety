@@ -17,6 +17,7 @@ if ($object->xpdo) {
             $manager->createObjectContainer('SocietySubscribers');
             $manager->createObjectContainer('SocietyThread');
             $manager->createObjectContainer('SocietyVote');
+            $manager->createObjectContainer('SocietyTopicTags');
             $modx->setLogLevel(modX::LOG_LEVEL_INFO);
             break;
     }

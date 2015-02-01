@@ -56,6 +56,9 @@ class modSocietyWebThreadsCommentsGetdataProcessor extends modObjectProcessor{
             );
         }
         
+        if($cid = $this->getProperty('comment_id')){
+            $where["id"] = $cid;
+        }
         
         if(!$parent && $thread_id){
             $where['thread_id'] = $thread_id;

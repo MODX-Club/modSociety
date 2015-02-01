@@ -49,5 +49,33 @@ switch($modx->event->name) {
     case 'OnManagerPageInit':
         $cssFile = $modx->getOption('modsociety.manager_assets_url',null,$modx->getOption('manager_url').'components/modsociety/assets/mgr/').'css/modsociety.css';
         $modx->regClientCSS($cssFile);
+    break;    
+    
+    case 'OnBeforeDocFormSave':
+        foreach($scriptProperties as $k => $resource){
+            if(is_object($resource) && $resource instanceof SocietyTopic){
+                
+                $topicBlogData = array('topicid' => $resource->id, 'blogid'=> $resource->parent);
+                if(!$resource->id || !$_TopicBlog = $modx->getObject('SocietyBlogTopic',$topicBlogData)){
+                    $_TopicBlog = $modx->newObject('SocietyBlogTopic');
+                }
+                
+                $_TopicBlog->set('blogid',$resource->parent);
+                if($resource->id) $_TopicBlog->set('topicid',$resource->id);
+                
+                $resource->TopicBlogs = $_TopicBlog;
+                
+                if(!$_Attributes = $resource->Attributes){
+                    $_Attributes = $modx->newObject('SocietyTopicAttributes');
+                }
+                
+                $_Attributes->set('raw_content',$resource->content);
+                
+                $resource->Attributes = $_Attributes;
+                
+                break;
+            }
+        }
+
     break;
 }

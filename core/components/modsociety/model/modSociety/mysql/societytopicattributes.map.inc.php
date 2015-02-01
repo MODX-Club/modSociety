@@ -1,13 +1,15 @@
 <?php
 $xpdo_meta_map['SocietyTopicAttributes']= array (
   'package' => 'modSociety',
-  'version' => '1.1',
+  'version' => '2.0.3',
   'table' => 'society_topic_attributes',
   'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
     'resourceid' => NULL,
     'content_hash' => NULL,
+    'raw_content' => NULL,
+    'topic_tags' => NULL,
   ),
   'fieldMeta' => 
   array (
@@ -28,18 +30,20 @@ $xpdo_meta_map['SocietyTopicAttributes']= array (
       'null' => true,
       'index' => 'unique',
     ),
-  ),
-  'aggregates' => 
-  array (
-    'Topic' => 
+    'raw_content' => 
     array (
-      'class' => 'SocietyTopic',
-      'local' => 'resourceid',
-      'foreign' => 'id',
-      'cardinality' => 'one',
-      'owner' => 'foreign',
+      'dbtype' => 'text',
+      'phptype' => 'string',
+      'null' => false,
     ),
-  ), 
+    'topic_tags' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '1024',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+  ),
   'indexes' => 
   array (
     'resourceid' => 
@@ -75,4 +79,15 @@ $xpdo_meta_map['SocietyTopicAttributes']= array (
       ),
     ),
   ),
+    'aggregates' => 
+  array (
+    'Topic' => 
+    array (
+      'class' => 'SocietyTopic',
+      'local' => 'resourceid',
+      'foreign' => 'id',
+      'cardinality' => 'one',
+      'owner' => 'foreign',
+    ),
+  ), 
 );
