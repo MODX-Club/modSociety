@@ -7,6 +7,9 @@ class  modSocietyWebThreadsCommentsUpdateProcessor extends modObjectUpdateProces
     
     public $classKey = 'SocietyComment';
     
+    public function checkPermissions(){
+        return $this->modx->user->id && parent::checkPermissions();
+    }
     
     public function initialize(){
 
@@ -14,6 +17,7 @@ class  modSocietyWebThreadsCommentsUpdateProcessor extends modObjectUpdateProces
         $this->unsetProperty('thread_id');
         $this->unsetProperty('parent');
         $this->unsetProperty('ip');
+        $this->unsetProperty('published');
         $this->unsetProperty('createdon');
         $this->unsetProperty('createdby');
         $this->unsetProperty('editedon');
@@ -22,10 +26,6 @@ class  modSocietyWebThreadsCommentsUpdateProcessor extends modObjectUpdateProces
         $this->unsetProperty('deletedby');
         $this->unsetProperty('comments_count');
         $this->unsetProperty('properties');
-        
-        if(!$this->modx->user->isAuthenticated($this->modx->context->key)){
-            return 'Unauthorized';
-        }
         
         if(!$comment_id = (int)$this->getProperty('comment_id')){
             return 'Не был получен ID комментария';
